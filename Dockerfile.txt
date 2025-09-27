@@ -1,0 +1,24 @@
+# Dockerfile
+
+# Use the official Python image as a base
+FROM python:3.11-slim
+
+# Set working directory inside the container
+WORKDIR /code
+
+# Copy the requirements file and install dependencies
+# This caches the layer if requirements.txt doesn't change
+COPY ./requirements.txt /code/
+# Install dependencies needed for your app (FastAPI, SQLAlchemy, etc.)
+RUN pip install --no-cache-dir -r /code/requirements.txt
+
+# Copy the entire application code
+# This copies main.py, the entire app/ folder, and all your project files
+COPY . /code/
+
+# Expose the port (FastAPI default)
+EXPOSE 8000
+
+# Command to run the application
+# We use Gunicorn to manage Uvicorn workers for production stability
+CMD ["gunicorn", "main:app", "--workers", "4", "--worker-class", "uvicorn.workers.UvicornWorker", "--bind", "0.0.0.0:8000"]

@@ -1,0 +1,11 @@
+Ignore the entire virtual environment folder
+venv/
+
+Ignore the local database file created by SQLAlchemy
+*.db
+*.sqlite
+*.sqlite3
+
+Python build and cache files
+pycache/
+*.pyc

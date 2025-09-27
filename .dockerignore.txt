@@ -1,0 +1,17 @@
+# .dockerignore
+
+# Virtual environment folder - DO NOT copy this!
+venv/
+
+# Database file (will be handled separately in deployment)
+*.db
+
+# Pycache and Python build artifacts
+__pycache__/
+*.pyc
+*.swp
+*.tmp
+.DS_Store
+
+# Git artifacts if applicable
+.git/
