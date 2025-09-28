@@ -1,11 +1,22 @@
-Ignore the entire virtual environment folder
+# Ignore Python virtual environment
+genenv/
 venv/
+.venv/
 
-Ignore the local database file created by SQLAlchemy
-*.db
-*.sqlite
-*.sqlite3
-
-Python build and cache files
-pycache/
+# Ignore Python cache
+__pycache__/
 *.pyc
+*.pyo
+*.pyd
+
+# Ignore VS Code settings
+.vscode/
+
+# Ignore logs and alerts
+requests.log
+last_crisis_alert.json
+mismatches.log
+
+# Ignore system files
+.DS_Store
+Thumbs.db
