@@ -1,0 +1,22 @@
+from flask import Flask, request, jsonify
+
+app = Flask(__name__)
+
+@app.route("/chat", methods=["POST"])   # only POST
+def chat():
+    data = request.get_json(force=True)
+    user_message = data.get("message", "")
+    return jsonify({"reply": f"You said: {user_message}"})
+
+# Optional: root route to test in browser
+@app.route("/", methods=["GET"])
+
+def home():
+    return "Welcome to the chatbot!."
+
+if __name__ == "__main__":
+    app.run(debug=True)  # runs on http://127.0.0.1:5000/sms
+    # Example of setting up a local server in Python using Flask
+from flask import Flask
+
+app = Flask(__name__)
